@@ -1,0 +1,18 @@
+
+    <div *ngIf="dati">
+        <div *ngFor="let drink of dati.drinks" class="d-flex flex-wrap gap-5 px-5">
+            <h1 class="w-100 fs-titolo text-white text-uppercase text-center d-flex align-items-center gap-5 justify-content-center">{{ drink.strDrink }}</h1>
+                <div class="col-lg-4"><img src={{drink.strDrinkThumb}} class="w-100" alt=""></div>
+            <div class="col-lg-7 gap-3 d-flex flex-wrap">
+                <h2 class="fs-1 text-uppercase w-100">ingredienti</h2>
+                <ul class="w-35">
+                    <li *ngFor="let ingredient of ingredients" class="fs-4 fw-bold">{{ ingredient }}</li>
+                </ul>
+                <ul class="list-unstyled w-35">
+                    <li *ngFor="let measure of measure" class="fs-4 fw-bold">{{ measure }}</li>
+                </ul>
+                <h2 class="fs-1 text-uppercase ">preparazione</h2>
+                <p class="fs-5 fw-semibold">{{drink.strInstructionsIT}}</p>
+            </div>
+        </div>
+    </div>
