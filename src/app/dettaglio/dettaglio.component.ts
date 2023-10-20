@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiDetails } from "../apiDetails";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "dettaglio",
@@ -14,12 +14,18 @@ export class Dettaglio implements OnInit {
   ingredients: string[] = [];
   measure: string[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiDetails) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiDetails, private router: Router) {}
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.id = params.get("id");
       this.apiService.getDati(this.id).subscribe((data) => {
         this.dati = data;
+
+        if (!this.dati || !this.dati.drinks || this.dati.drinks.length === 0) {
+          this.router.navigate(['/404-not-found']);
+          return;
+        }
+
         console.log(this.dati);
 
         for (let i = 1; i <= 15; i++) {
@@ -38,9 +44,3 @@ export class Dettaglio implements OnInit {
     });
   }
 }
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

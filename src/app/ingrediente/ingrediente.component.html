@@ -1,0 +1,24 @@
+
+<div *ngIf="dati" class="p-5">
+    <h1 class="text-center pb-5 w-100 fs-titolo text-white text-uppercase text-center d-flex align-items-center gap-4 justify-content-center">{{nome}}</h1>
+    <div class="d-flex flex-wrap gap-5 justify-content-around">
+      <div class="row flex-wrap">
+      <a routerLink="/dettaglio/{{drink.idDrink}}" 
+          *ngFor="let drink of dati.drinks" 
+          class="p-4 col-lg-4 col-md-6 col-12">
+          <div  class="d-flex flex-column position-relative overflow-hidden rounded-2 ombra">
+            <div class="overlay position-absolute overflow-hidden d-flex align-items-center justify-content-center flex-column gap-3 text-white pt-3 text-uppercase fw-bold fs-2 text-center">
+              {{drink.strDrink}} 
+              <i class="bi bi-arrow-right-circle fs-1"></i>
+            </div>
+            <img src={{drink.strDrinkThumb}} class="img-fluid" alt="">
+          </div>
+          <h2 class="text-white pt-3 text-uppercase fw-bold fs-2 text-center d-lg-none">{{drink.strDrink}}</h2>
+        </a>
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  

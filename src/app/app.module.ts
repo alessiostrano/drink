@@ -10,6 +10,7 @@ import { Dettaglio } from './dettaglio/dettaglio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Alcohlic } from './alcohlic-drink/alcohlic-drink-page.component';
 import { Analcohlic } from './analcohlic-drink/analcohlic-drink-page.component';
+import { Ingrediente } from './ingrediente/ingrediente.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { Analcohlic } from './analcohlic-drink/analcohlic-drink-page.component';
     Page404,
     Dettaglio,
     Alcohlic,
-    Analcohlic
+    Analcohlic,
+    Ingrediente
   ],
   bootstrap: [
     AppComponent

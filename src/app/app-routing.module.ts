@@ -5,12 +5,14 @@ import { Page404 } from './page-404/page-404.component';
 import { Dettaglio } from './dettaglio/dettaglio.component';
 import { Alcohlic } from './alcohlic-drink/alcohlic-drink-page.component';
 import { Analcohlic } from './analcohlic-drink/analcohlic-drink-page.component';
+import { Ingrediente } from './ingrediente/ingrediente.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePage },
   { path: 'alcoholic', component: Alcohlic },
   { path: 'analcoholic', component: Analcohlic },
   { path: 'dettaglio/:id', component: Dettaglio },
+  { path: 'ingrediente/:nome', component: Ingrediente },
   { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: Page404 },  
 ];// sets up routes constant where you define your routes
