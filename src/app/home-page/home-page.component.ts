@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -9,17 +9,23 @@ import { ApiService } from '../api';
 })
 
 export class HomePage implements OnInit {
-  dati: any;
+  dati:any = [];
+  alfabeto: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-  constructor(private apiService: ApiService) {}
-
+  constructor(private apiService: ApiService, private changeDetectorRef: ChangeDetectorRef) {}
   ngOnInit() {
-    this.apiService.getDati().subscribe((data) => {
+    this.effettuaChiamataAPI();
+  }
+  
+  effettuaChiamataAPI(lettera: string = 'a') {
+    this.apiService.searchByF(lettera).subscribe((data) => {
       this.dati = data;
-      console.log(this.dati)
+      this.changeDetectorRef.detectChanges();
     });
   }
+  
 }
+
 
 
 

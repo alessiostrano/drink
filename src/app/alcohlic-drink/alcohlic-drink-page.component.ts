@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiAlcoholic } from '../apiAlcolici';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -11,10 +11,10 @@ import { ApiAlcoholic } from '../apiAlcolici';
 export class Alcohlic implements OnInit {
   dati: any;
 
-  constructor(private apiService: ApiAlcoholic) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.getDati().subscribe((data) => {
+    this.apiService.getAlcoholic().subscribe((data) => {
       this.dati = data;
       console.log(this.dati)
     });

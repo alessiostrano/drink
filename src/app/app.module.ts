@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Alcohlic } from './alcohlic-drink/alcohlic-drink-page.component';
 import { Analcohlic } from './analcohlic-drink/analcohlic-drink-page.component';
 import { Ingrediente } from './ingrediente/ingrediente.component';
+import { ApiService } from './api.service';
 
 @NgModule({
   imports: [
@@ -28,6 +29,9 @@ import { Ingrediente } from './ingrediente/ingrediente.component';
     Alcohlic,
     Analcohlic,
     Ingrediente
+  ],
+  providers:[
+    ApiService,
   ],
   bootstrap: [
     AppComponent

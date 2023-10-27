@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { apiIngredienti } from "../apiIngredienti";
+import { ApiService } from "../api.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -14,12 +14,12 @@ export class Ingrediente implements OnInit {
   ingredients: string[] = [];
   measure: string[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: apiIngredienti,private router: Router
+  constructor(private route: ActivatedRoute, private apiService: ApiService,private router: Router
     ) {}
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.nome = params.get("nome");
-      this.apiService.getDati(this.nome).subscribe((data) => {
+      this.apiService.getIngredients(this.nome).subscribe((data) => {
         this.dati = data;
         if (!this.dati || !this.dati.drinks || this.dati.drinks.length === 0) {
           this.router.navigate(['/404-not-found']);
